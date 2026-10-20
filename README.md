@@ -7,7 +7,7 @@ This repository contains my ROS 2 implementations for Project Altair Phase 3.
 
 ## Task 1: Mars Rover Telemetry
 
-Task 1 implements a telemetry publisher and mission-control monitor.
+Task 1 implements a simple telemetry publisher and mission-control monitor.
 
 ### Nodes
 
@@ -27,7 +27,7 @@ Task 1 implements a telemetry publisher and mission-control monitor.
 - Message type: `std_msgs/msg/String`
 - Data format: JSON encoded inside the String message.
 
-JSON inside a String message keeps this example simple without requiring a custom message definition.
+The String message keeps this example simple without requiring a custom ROS 2 message definition.
 
 ### Requirements
 
@@ -38,34 +38,42 @@ JSON inside a String message keeps this example simple without requiring a custo
 
 ### Build
 
-From the workspace root:
+From the ROS 2 workspace root:
 
-    source /opt/ros/jazzy/setup.bash
-    colcon build --symlink-install --packages-select altair_phase3
-    source install/setup.bash
+```bash
+source /opt/ros/jazzy/setup.bash
+colcon build --symlink-install --packages-select altair_phase3
+source install/setup.bash
+````
 
 ### Run the publisher
 
 In the first terminal:
 
-    source /opt/ros/jazzy/setup.bash
-    source ~/altair_phase3_ws/install/setup.bash
-    ros2 run altair_phase3 telemetry_pub
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/altair_phase3_ws/install/setup.bash
+ros2 run altair_phase3 telemetry_pub
+```
 
 ### Run the monitor
 
 In a second terminal:
 
-    source /opt/ros/jazzy/setup.bash
-    source ~/altair_phase3_ws/install/setup.bash
-    ros2 run altair_phase3 telemetry_monitor
+```bash
+source /opt/ros/jazzy/setup.bash
+source ~/altair_phase3_ws/install/setup.bash
+ros2 run altair_phase3 telemetry_monitor
+```
 
 ### Inspect the topic
 
-    ros2 topic info /mars_telemetry
-    ros2 topic echo /mars_telemetry
+```bash
+ros2 topic info /mars_telemetry
+ros2 topic echo /mars_telemetry
+```
 
-The monitor displays a low-battery warning when the battery percentage falls below 25%.
+The monitor displays a low-battery warning when the reported battery percentage falls below 25%.
 
 ## Project status
 

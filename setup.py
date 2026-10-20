@@ -27,6 +27,7 @@ setup(
         'console_scripts': [
             'telemetry_pub = altair_phase3.mars_telemetry_publisher:main',
             'telemetry_monitor = altair_phase3.mission_control_monitor:main',
+            'turtle_driving = altair_phase3.turtle_driving:main',
         ],
     },
 )

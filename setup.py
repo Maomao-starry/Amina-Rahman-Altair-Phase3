@@ -1,3 +1,5 @@
+import glob
+import os
 from setuptools import find_packages, setup
 
 package_name = 'altair_phase3'
@@ -15,6 +17,10 @@ setup(
             'share/' + package_name,
             ['package.xml']
         ),
+        (
+            os.path.join('share', package_name, 'launch'),
+            glob.glob('launch/*.launch.py')
+        ),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -28,6 +34,7 @@ setup(
             'telemetry_pub = altair_phase3.mars_telemetry_publisher:main',
             'telemetry_monitor = altair_phase3.mission_control_monitor:main',
             'turtle_driving = altair_phase3.turtle_driving:main',
+            'waypoint_mission = altair_phase3.waypoint_mission:main',
         ],
     },
 )
